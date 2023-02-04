@@ -1,0 +1,65 @@
+### Get pokemon by name 
+GET http://localhost:8080/ditto
+
+### Post a pokemon 
+POST http://localhost:8080 HTTP/1.1
+content-type: application/json
+
+{
+	"name": "Eevee",
+	"types": ["normal"],
+	"generation": 1,
+	"pokedex_number": 133,
+	"height": "1'00\"",
+	"weight": "14.3 lbs.",
+	"evolve_from": null,
+	"evolve_to": ["Vaporeon", "Jolteon", "Flareon", "Espeon", "Umbreon", "Leafeon", "Glaceon", "Sylveon"]
+}
+
+### Put a pokemon
+PUT http://localhost:8080/63ded282b5bc56d7c9c3ca93 HTTP/1.1
+content-type: application/json
+
+{
+	"name": "eevee",
+	"types": ["normal"],
+	"generation": 1,
+	"pokedex_number": 133,
+	"height": "1'00\"",
+	"weight": "14.3 lbs.",
+	"evolve_from": null,
+	"evolve_to": ["Vaporeon", "Jolteon", "Flareon", "Espeon", "Umbreon", "Leafeon", "Glaceon", "Sylveon"]
+}
+### Delete a pokemon
+DELETE http://localhost:8080/63ded282b5bc56d7c9c3ca93 HTTP/1.1
+
+
+
+
+
+### Get move by name 
+GET http://localhost:8080/moves/transform
+
+### Post a move 
+POST http://localhost:8080/moves HTTP/1.1
+content-type: application/json
+
+{
+	"name": "Charm",
+	"type": "fairy",
+	"power": "N/A",
+	"accuracy": "100%"
+}
+
+### Put a move
+PUT http://localhost:8080/moves/63ded7c31e2a82519f4b07b1 HTTP/1.1
+content-type: application/json
+
+{
+	"name": "charm",
+	"type": "fairy",
+	"power": "N/A",
+	"accuracy": "100%"
+}
+### Delete a move
+DELETE http://localhost:8080/moves/63ded7c31e2a82519f4b07b1 HTTP/1.1
