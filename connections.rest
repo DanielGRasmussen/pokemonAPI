@@ -63,3 +63,83 @@ content-type: application/json
 }
 ### Delete a move
 DELETE http://localhost:8080/moves/63ded7c31e2a82519f4b07b1 HTTP/1.1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Get pokemon by name 
+GET cse341-anr0.onrender.com/ditto
+
+### Post a pokemon 
+POST cse341-anr0.onrender.com HTTP/1.1
+content-type: application/json
+
+{
+	"name": "Eevee",
+	"types": ["normal"],
+	"generation": 1,
+	"pokedex_number": 133,
+	"height": "1'00\"",
+	"weight": "14.3 lbs.",
+	"evolve_from": null,
+	"evolve_to": ["Vaporeon", "Jolteon", "Flareon", "Espeon", "Umbreon", "Leafeon", "Glaceon", "Sylveon"]
+}
+
+### Put a pokemon
+PUT cse341-anr0.onrender.com/63ded282b5bc56d7c9c3ca93 HTTP/1.1
+content-type: application/json
+
+{
+	"name": "eevee",
+	"types": ["normal"],
+	"generation": 1,
+	"pokedex_number": 133,
+	"height": "1'00\"",
+	"weight": "14.3 lbs.",
+	"evolve_from": null,
+	"evolve_to": ["Vaporeon", "Jolteon", "Flareon", "Espeon", "Umbreon", "Leafeon", "Glaceon", "Sylveon"]
+}
+### Delete a pokemon
+DELETE cse341-anr0.onrender.com/63ded282b5bc56d7c9c3ca93 HTTP/1.1
+
+
+
+
+
+### Get move by name 
+GET cse341-anr0.onrender.com/moves/transform
+
+### Post a move 
+POST cse341-anr0.onrender.com/moves HTTP/1.1
+content-type: application/json
+
+{
+	"name": "Charm",
+	"type": "fairy",
+	"power": "N/A",
+	"accuracy": "100%"
+}
+
+### Put a move
+PUT cse341-anr0.onrender.com/moves/63ded7c31e2a82519f4b07b1 HTTP/1.1
+content-type: application/json
+
+{
+	"name": "charm",
+	"type": "fairy",
+	"power": "N/A",
+	"accuracy": "100%"
+}
+### Delete a move
+DELETE cse341-anr0.onrender.com/moves/63ded7c31e2a82519f4b07b1 HTTP/1.1
