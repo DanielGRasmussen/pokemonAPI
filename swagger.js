@@ -5,7 +5,7 @@ const doc = {
 		title: "My API",
 		description: "Description"
 	},
-	host: "https://pokemonapi-mwwn.onrender.com",
+	host: "pokemonapi-mwwn.onrender.com",
 	schemes: ["https"]
 };
 
