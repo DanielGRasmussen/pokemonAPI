@@ -79,10 +79,10 @@ DELETE http://localhost:8080/moves/63ded7c31e2a82519f4b07b1 HTTP/1.1
 
 
 ### Get pokemon by name 
-GET cse341-anr0.onrender.com/ditto
+GET https://pokemonapi-mwwn.onrender.com/ditto
 
 ### Post a pokemon 
-POST cse341-anr0.onrender.com HTTP/1.1
+POST https://pokemonapi-mwwn.onrender.com HTTP/1.1
 content-type: application/json
 
 {
@@ -97,7 +97,7 @@ content-type: application/json
 }
 
 ### Put a pokemon
-PUT cse341-anr0.onrender.com/63ded282b5bc56d7c9c3ca93 HTTP/1.1
+PUT https://pokemonapi-mwwn.onrender.com/63ded282b5bc56d7c9c3ca93 HTTP/1.1
 content-type: application/json
 
 {
@@ -111,17 +111,17 @@ content-type: application/json
 	"evolve_to": ["Vaporeon", "Jolteon", "Flareon", "Espeon", "Umbreon", "Leafeon", "Glaceon", "Sylveon"]
 }
 ### Delete a pokemon
-DELETE cse341-anr0.onrender.com/63ded282b5bc56d7c9c3ca93 HTTP/1.1
+DELETE https://pokemonapi-mwwn.onrender.com/63ded282b5bc56d7c9c3ca93 HTTP/1.1
 
 
 
 
 
 ### Get move by name 
-GET cse341-anr0.onrender.com/moves/transform
+GET https://pokemonapi-mwwn.onrender.com/moves/transform
 
 ### Post a move 
-POST cse341-anr0.onrender.com/moves HTTP/1.1
+POST https://pokemonapi-mwwn.onrender.com/moves HTTP/1.1
 content-type: application/json
 
 {
@@ -132,7 +132,7 @@ content-type: application/json
 }
 
 ### Put a move
-PUT cse341-anr0.onrender.com/moves/63ded7c31e2a82519f4b07b1 HTTP/1.1
+PUT https://pokemonapi-mwwn.onrender.com/moves/63ded7c31e2a82519f4b07b1 HTTP/1.1
 content-type: application/json
 
 {
@@ -142,4 +142,4 @@ content-type: application/json
 	"accuracy": "100%"
 }
 ### Delete a move
-DELETE cse341-anr0.onrender.com/moves/63ded7c31e2a82519f4b07b1 HTTP/1.1
+DELETE https://pokemonapi-mwwn.onrender.com/moves/63ded7c31e2a82519f4b07b1 HTTP/1.1
