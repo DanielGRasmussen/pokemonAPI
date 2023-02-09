@@ -1,8 +1,8 @@
-### Get pokemon by name 
+### Get pokemon by name
 GET http://localhost:8080/ditto
 
-### Post a pokemon 
-POST http://localhost:8080 HTTP/1.1
+### Post a pokemon
+POST http://localhost:8080
 content-type: application/json
 
 {
@@ -17,7 +17,7 @@ content-type: application/json
 }
 
 ### Put a pokemon
-PUT http://localhost:8080/63ded282b5bc56d7c9c3ca93 HTTP/1.1
+PUT http://localhost:8080/63e569ca1c4aceba55eb9975
 content-type: application/json
 
 {
@@ -31,17 +31,17 @@ content-type: application/json
 	"evolve_to": ["Vaporeon", "Jolteon", "Flareon", "Espeon", "Umbreon", "Leafeon", "Glaceon", "Sylveon"]
 }
 ### Delete a pokemon
-DELETE http://localhost:8080/63ded282b5bc56d7c9c3ca93 HTTP/1.1
+DELETE http://localhost:8080/63e569ad1c4aceba55eb9974
 
 
 
 
 
-### Get move by name 
+### Get move by name
 GET http://localhost:8080/moves/transform
 
-### Post a move 
-POST http://localhost:8080/moves HTTP/1.1
+### Post a move
+POST http://localhost:8080/moves
 content-type: application/json
 
 {
@@ -52,7 +52,7 @@ content-type: application/json
 }
 
 ### Put a move
-PUT http://localhost:8080/moves/63ded7c31e2a82519f4b07b1 HTTP/1.1
+PUT http://localhost:8080/moves/63e56acce9b49a71b8076493
 content-type: application/json
 
 {
@@ -62,7 +62,7 @@ content-type: application/json
 	"accuracy": "100%"
 }
 ### Delete a move
-DELETE http://localhost:8080/moves/63ded7c31e2a82519f4b07b1 HTTP/1.1
+DELETE http://localhost:8080/moves/63e56acce9b49a71b8076493
 
 
 
@@ -78,11 +78,11 @@ DELETE http://localhost:8080/moves/63ded7c31e2a82519f4b07b1 HTTP/1.1
 
 
 
-### Get pokemon by name 
+### Get pokemon by name
 GET https://pokemonapi-mwwn.onrender.com/ditto
 
-### Post a pokemon 
-POST https://pokemonapi-mwwn.onrender.com HTTP/1.1
+### Post a pokemon
+POST https://pokemonapi-mwwn.onrender.com
 content-type: application/json
 
 {
@@ -97,7 +97,7 @@ content-type: application/json
 }
 
 ### Put a pokemon
-PUT https://pokemonapi-mwwn.onrender.com/63ded282b5bc56d7c9c3ca93 HTTP/1.1
+PUT https://pokemonapi-mwwn.onrender.com/63ded282b5bc56d7c9c3ca93
 content-type: application/json
 
 {
@@ -111,17 +111,17 @@ content-type: application/json
 	"evolve_to": ["Vaporeon", "Jolteon", "Flareon", "Espeon", "Umbreon", "Leafeon", "Glaceon", "Sylveon"]
 }
 ### Delete a pokemon
-DELETE https://pokemonapi-mwwn.onrender.com/63ded282b5bc56d7c9c3ca93 HTTP/1.1
+DELETE https://pokemonapi-mwwn.onrender.com/63ded282b5bc56d7c9c3ca93
 
 
 
 
 
-### Get move by name 
+### Get move by name
 GET https://pokemonapi-mwwn.onrender.com/moves/transform
 
-### Post a move 
-POST https://pokemonapi-mwwn.onrender.com/moves HTTP/1.1
+### Post a move
+POST https://pokemonapi-mwwn.onrender.com/moves
 content-type: application/json
 
 {
@@ -132,7 +132,7 @@ content-type: application/json
 }
 
 ### Put a move
-PUT https://pokemonapi-mwwn.onrender.com/moves/63ded7c31e2a82519f4b07b1 HTTP/1.1
+PUT https://pokemonapi-mwwn.onrender.com/moves/63ded7c31e2a82519f4b07b1
 content-type: application/json
 
 {
@@ -142,4 +142,4 @@ content-type: application/json
 	"accuracy": "100%"
 }
 ### Delete a move
-DELETE https://pokemonapi-mwwn.onrender.com/moves/63ded7c31e2a82519f4b07b1 HTTP/1.1
+DELETE https://pokemonapi-mwwn.onrender.com/moves/63ded7c31e2a82519f4b07b1
