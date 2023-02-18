@@ -5,18 +5,7 @@ const uri = process.env.DB_URI;
 
 const JwtStrategy = require("passport-jwt").Strategy;
 const { ExtractJwt } = require("passport-jwt");
-
-const findUserByGoogleId = async (googleId) => {
-	try {
-		const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-		await client.connect();
-		const collection = client.db().collection("users");
-		return await collection.findOne({ "google.id": googleId });
-	} catch (error) {
-		console.error(error);
-		return null;
-	}
-};
+const { findUserByGoogleId } = require("./userModel");
 
 module.exports = (passport) => {
 	passport.use(
