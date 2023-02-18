@@ -1,11 +1,11 @@
 const MongoClient = require("mongodb").MongoClient;
 const { ObjectID } = require("mongodb");
 require("dotenv").config();
-const url = process.env.DB_URL;
+const uri = process.env.DB_URI;
 const dbName = process.env.DB_NAME;
 
 async function connect(collectionName) {
-	const client = await MongoClient.connect(url, { useNewUrlParser: true });
+	const client = await MongoClient.connect(uri, { useNewUrlParser: true });
 	const db = client.db(dbName);
 	return db.collection(collectionName);
 }

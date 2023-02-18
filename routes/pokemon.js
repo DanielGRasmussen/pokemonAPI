@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const pokemonController = require("../controller/pokemon");
 const passport = require("passport");
-const { findUserByGoogleId } = require("../userDb");
+const { findUserByGoogleId } = require("../userModel");
 
 router.get(
 	"/:pokemon",

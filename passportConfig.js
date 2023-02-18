@@ -1,7 +1,7 @@
 const GoogleStrategy = require("passport-google-oauth2").Strategy;
 const { MongoClient } = require("mongodb");
 require("dotenv").config();
-const uri = process.env.DB_URL;
+const uri = process.env.DB_URI;
 
 const JwtStrategy = require("passport-jwt").Strategy;
 const { ExtractJwt } = require("passport-jwt");
@@ -11,9 +11,7 @@ const findUserByGoogleId = async (googleId) => {
 		const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 		await client.connect();
 		const collection = client.db().collection("users");
-		const user = await collection.findOne({ "google.id": googleId });
-		client.close();
-		return user;
+		return await collection.findOne({ "google.id": googleId });
 	} catch (error) {
 		console.error(error);
 		return null;
@@ -54,7 +52,6 @@ module.exports = (passport) => {
 					const collection = client.db().collection("users");
 					const result = await collection.insertOne(newUser);
 					newUser._id = result.insertedId;
-					client.close();
 					return done(null, newUser);
 				} catch (error) {
 					return done(error, false);

@@ -1,42 +1,22 @@
-const MongoClient = require("mongodb");
+const MongoClient = require("mongodb").MongoClient;
+const uri = process.env.DB_URI;
+const dbName = "users";
 
-const UserSchema = {
-	google: {
-		id: {
-			type: String
-		},
-		name: {
-			type: String
-		},
-		email: {
-			type: String
-		}
-	}
-};
-
-function connectToDB() {
-	return MongoClient.connect(process.env.DB_URL, {
-		useNewUrlParser: true,
-		useUnifiedTopology: true
-	});
+async function connect(collectionName) {
+	const client = await MongoClient.connect(uri, { useNewUrlParser: true });
+	const db = client.db(dbName);
+	return db.collection(collectionName);
 }
 
 async function createUser(user) {
-	const client = await connectToDB();
-	const db = client.db(process.env.DB_NAME);
-	const result = await db.collection("users").insertOne(user);
-	client.close();
-	return result;
+	return await connect("users").insertOne(user);
 }
 
 async function findUserByGoogleId(googleId) {
-	const client = await connectToDB();
-	const db = client.db(process.env.DB_NAME);
-	return await db.collection("users").findOne({ "google.id": googleId });
+	return await connect("users").findOne({ "google.id": googleId });
 }
 
 module.exports = {
-	User: UserSchema,
 	createUser,
 	findUserByGoogleId
 };
