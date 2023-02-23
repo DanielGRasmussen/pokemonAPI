@@ -1,30 +1,27 @@
 const express = require("express");
 const router = express.Router();
 const pokemonController = require("../controller/pokemon");
-const passport = require("passport");
-const { findUserByGoogleId } = require("../userModel");
+// const passport = require("../passportConfig");
+const { authenticate } = require("../authenticate");
 
 router.get(
 	"/:pokemon",
-	passport.authenticate("jwt", { session: false }),
-	async (req, res, next) => {
-		try {
-			const user = await findUserByGoogleId(req.user.google.id);
-			if (!user) {
-				return res.status(401).json({ message: "User not found" });
-			}
-			// User found, call the getPokemon function
-			pokemonController.getPokemon();
-		} catch (error) {
-			next(error);
-		}
+	// passport.authenticate("jwt", { session: false }),
+	async (req, res) => {
+		await authenticate(req, res, pokemonController.getPokemon);
 	}
 );
 
-router.post("/", pokemonController.addPokemon);
+router.post("/", async (req, res) => {
+	await authenticate(req, res, pokemonController.addPokemon);
+});
 
-router.put("/:id", pokemonController.updatePokemon);
+router.put("/:id", async (req, res) => {
+	await authenticate(req, res, pokemonController.updatePokemon);
+});
 
-router.delete("/:id", pokemonController.deletePokemon);
+router.delete("/:id", async (req, res) => {
+	await authenticate(req, res, pokemonController.deletePokemon);
+});
 
 module.exports = router;

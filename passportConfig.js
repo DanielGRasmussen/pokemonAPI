@@ -3,9 +3,9 @@ const { MongoClient } = require("mongodb");
 require("dotenv").config();
 const uri = process.env.DB_URI;
 
-const JwtStrategy = require("passport-jwt").Strategy;
+// const JwtStrategy = require("passport-jwt").Strategy;
 const passport = require("passport");
-const { ExtractJwt } = require("passport-jwt");
+// const { ExtractJwt } = require("passport-jwt");
 const { findUserByGoogleId } = require("./userModel");
 
 passport.use(
@@ -13,7 +13,7 @@ passport.use(
 		{
 			clientID: process.env.CLIENT_ID,
 			clientSecret: process.env.CLIENT_SECRET,
-			callbackURL: "http://localhost:3000/auth/callback",
+			callbackURL: process.env.CALLBACK_URL,
 			passReqToCallback: true
 		},
 		async (request, accessToken, refreshToken, profile, done) => {
@@ -48,7 +48,7 @@ passport.use(
 		}
 	)
 );
-passport.use(
+/* passport.use(
 	new JwtStrategy(
 		{
 			jwtFromRequest: ExtractJwt.fromHeader("authorization"),
@@ -63,6 +63,6 @@ passport.use(
 			}
 		}
 	)
-);
+); */
 
 module.exports = passport;

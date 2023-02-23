@@ -1,13 +1,22 @@
 const express = require("express");
 const router = express.Router();
 const movesController = require("../controller/moves");
+const authenticate = require("../authenticate");
 
-router.get("/:move", movesController.getMove);
+router.get("/:move", async (req, res) => {
+	await authenticate(req, res, movesController.getMove);
+});
 
-router.post("/", movesController.addMove);
+router.post("/", async (req, res) => {
+	await authenticate(req, res, movesController.addMove);
+});
 
-router.put("/:id", movesController.updateMove);
+router.put("/:id", async (req, res) => {
+	await authenticate(req, res, movesController.updateMove);
+});
 
-router.delete("/:id", movesController.deleteMove);
+router.delete("/:id", async (req, res) => {
+	await authenticate(req, res, movesController.deleteMove);
+});
 
 module.exports = router;
