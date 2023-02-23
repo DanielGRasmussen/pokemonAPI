@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const pokemonController = require("../controller/pokemon");
+const authenticate = require("../authenticate");
 // const passport = require("../passportConfig");
-const { authenticate } = require("../authenticate");
 
 router.get(
 	"/:pokemon",
