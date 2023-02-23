@@ -1,27 +1,45 @@
 const express = require("express");
 const router = express.Router();
 const pokemonController = require("../controller/pokemon");
-const authenticate = require("../authenticate");
-// const passport = require("../passportConfig");
 
-router.get(
-	"/:pokemon",
-	// passport.authenticate("jwt", { session: false }),
-	async (req, res) => {
-		await authenticate(req, res, pokemonController.getPokemon);
+router.get("/:pokemon", (req, res) => {
+	// Check if the user is authenticated
+	if (req.isAuthenticated()) {
+		pokemonController.getPokemon(req, res);
+	} else {
+		// Redirect to the login page if the user is not authenticated
+		res.redirect("/auth/");
 	}
-);
-
-router.post("/", async (req, res) => {
-	await authenticate(req, res, pokemonController.addPokemon);
 });
 
-router.put("/:id", async (req, res) => {
-	await authenticate(req, res, pokemonController.updatePokemon);
+router.post("/", (req, res) => {
+	// Check if the user is authenticated
+	if (req.isAuthenticated()) {
+		pokemonController.addPokemon(req, res);
+	} else {
+		// Redirect to the login page if the user is not authenticated
+		res.redirect("/auth/");
+	}
 });
 
-router.delete("/:id", async (req, res) => {
-	await authenticate(req, res, pokemonController.deletePokemon);
+router.put("/:id", (req, res) => {
+	// Check if the user is authenticated
+	if (req.isAuthenticated()) {
+		pokemonController.updatePokemon(req, res);
+	} else {
+		// Redirect to the login page if the user is not authenticated
+		res.redirect("/auth/");
+	}
+});
+
+router.delete("/:id", (req, res) => {
+	// Check if the user is authenticated
+	if (req.isAuthenticated()) {
+		pokemonController.deletePokemon(req, res);
+	} else {
+		// Redirect to the login page if the user is not authenticated
+		res.redirect("/auth/");
+	}
 });
 
 module.exports = router;

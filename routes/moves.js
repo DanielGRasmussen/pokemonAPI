@@ -1,22 +1,45 @@
 const express = require("express");
 const router = express.Router();
 const movesController = require("../controller/moves");
-const authenticate = require("../authenticate");
 
-router.get("/:move", async (req, res) => {
-	await authenticate(req, res, movesController.getMove);
+router.get("/:move", (req, res) => {
+	// Check if the user is authenticated
+	if (req.isAuthenticated()) {
+		movesController.getMove(req, res);
+	} else {
+		// Redirect to the login page if the user is not authenticated
+		res.redirect("/auth/");
+	}
 });
 
-router.post("/", async (req, res) => {
-	await authenticate(req, res, movesController.addMove);
+router.post("/", (req, res) => {
+	// Check if the user is authenticated
+	if (req.isAuthenticated()) {
+		movesController.addMove(req, res);
+	} else {
+		// Redirect to the login page if the user is not authenticated
+		res.redirect("/auth/");
+	}
 });
 
-router.put("/:id", async (req, res) => {
-	await authenticate(req, res, movesController.updateMove);
+router.put("/:id", (req, res) => {
+	// Check if the user is authenticated
+	if (req.isAuthenticated()) {
+		movesController.updateMove(req, res);
+	} else {
+		// Redirect to the login page if the user is not authenticated
+		res.redirect("/auth/");
+	}
 });
 
-router.delete("/:id", async (req, res) => {
-	await authenticate(req, res, movesController.deleteMove);
+router.delete("/:id", (req, res) => {
+	// Check if the user is authenticated
+	if (req.isAuthenticated()) {
+		movesController.deleteMove(req, res);
+	} else {
+		// Redirect to the login page if the user is not authenticated
+		res.redirect("/auth/");
+	}
 });
 
 module.exports = router;
