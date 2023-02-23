@@ -11,7 +11,6 @@ router.get("/", passport.authenticate("google", { scope: ["email", "profile"] })
 router.get("/callback", passport.authenticate("google", { session: false }), async (req, res) => {
 	try {
 		const user = await findUserByGoogleId(req.user.google.id);
-		console.log("t1");
 		if (!user) {
 			// User doesn't exist in database, add them
 			const newUser = {
@@ -21,10 +20,8 @@ router.get("/callback", passport.authenticate("google", { session: false }), asy
 					email: req.user.google.email
 				}
 			};
-			console.log("t2");
 			await createUser(newUser);
 		}
-		console.log("t3");
 		// Generate JWT token for the user
 		jwt.sign({ user: req.user }, "secretKey", { expiresIn: "1h" }, (err, token) => {
 			if (err) {
