@@ -11,12 +11,9 @@
     "https"
   ],
   "paths": {
-    "/{pokemon}": {
+    "/pokemon/{pokemon}": {
       "get": {
         "description": "",
-        "produces": [
-          "application/json"
-        ],
         "parameters": [
           {
             "name": "pokemon",
@@ -26,19 +23,13 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
+          "401": {
+            "description": "Unauthorized"
           }
         }
       }
     },
-    "/": {
+    "/pokemon/": {
       "post": {
         "description": "",
         "parameters": [
@@ -89,7 +80,7 @@
         }
       }
     },
-    "/{id}": {
+    "/pokemon/{id}": {
       "put": {
         "description": "",
         "parameters": [
@@ -306,6 +297,27 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/auth/": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/auth/callback": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
           },
           "500": {
             "description": "Internal Server Error"
